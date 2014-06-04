@@ -8,5 +8,5 @@ int main()
 		if(i%3==0 || i%5==0)
 			solution+=i;
 	}
-	std::cout<<solution;
+	std::cout<<solution<<std::endl;
 }
