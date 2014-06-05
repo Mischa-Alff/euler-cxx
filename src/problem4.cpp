@@ -1,6 +1,7 @@
-#include <list>
+#include <vector>
 #include <cstdlib>
 #include <iostream>
+#include <algorithm>
 
 bool is_palindrome(int n)
 {
@@ -14,12 +15,12 @@ bool is_palindrome(int n)
 
 int main()
 {
-	std::list<int> palindromes;
+	std::vector<int> palindromes;
 	int solution{0};
 	for(int x{999};x>=100&&!solution;--x)
 		for(int y{x};y>=100&&!solution;--y)
 			if(is_palindrome(x*y))
 				palindromes.push_back(x*y);
-	palindromes.sort();
+	std::sort(palindromes.begin(), palindromes.end());
 	std::cout<<palindromes.back()<<std::endl;
 }
