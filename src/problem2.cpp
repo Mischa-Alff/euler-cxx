@@ -10,5 +10,5 @@ int main()
 		if(!(s&1)) solution += s;
 		s += f;
 	}
-	std::cout<<solution;
+	std::cout<<solution<<std::endl;
 }
