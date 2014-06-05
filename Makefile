@@ -1,5 +1,5 @@
 SRC = $(wildcard src/*.cpp)
-EXE = $(patsubst %.cpp,%,$(SRC))
+EXE = $(patsubst %.cpp,%, $(SRC))
 
 CXXFLAGS=-std=c++11
 
@@ -7,7 +7,8 @@ all: $(EXE)
 	@echo $(SRC)
 
 %: %.cpp
-	$(CXX) $(CXXFLAGS) -o $@ $<
+	mkdir -p bin
+	$(CXX) $(CXXFLAGS) -o $(patsubst src/%, bin/%, $@) $<
 
 clean:
 	rm $(EXE)
