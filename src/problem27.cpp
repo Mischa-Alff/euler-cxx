@@ -3,41 +3,30 @@
 #include <iostream>
 #include <algorithm>
 
-std::vector<int> eratosthenes(int max)
+void eratosthenes(int max, std::vector<bool> &val)
 {
-	std::vector<bool> val;
 	val.resize(max, true);
 	val[0]=val[1]=false;
 	int n=sqrt(val.size());
 	for(int i{2};i<=n;++i)
 		if(val[i])
-			for(int j=1;(i*i+j*i)<val.size();j++)
-				val[i*i+j*i]=false;
-	std::vector<int> primes;
-	for(int i{0};i<val.size();++i)
-		primes.push_back(val[i]?i:false);
-	return primes;
+			for(int j=i*i+i;j<val.size();j+=i)
+				val[j]=false;
 }
 
 int main()
 {
-	auto primes=eratosthenes(1000);
-	int num_primes{0}, sa, sb;
+	std::vector<bool> primes;
+	eratosthenes(972, primes);
+	int16_t num_primes{0}, sa, sb, n;
 
-	for(int a=-999;a<1000;++a)
+	for(int16_t a{-999};a<1000;a+=2)
 	{
-		for(int b=a;b<1000;++b)
+		for(int16_t b{3};b<998;b+=2)
 		{
 			if(!primes[b])
 				continue;
-			bool prime=true;
-			int n{0};
-			for(;prime;++n)
-			{
-				int tmp=std::abs((n*n)+(a*n)+b);
-				if(!primes[tmp])
-					prime=false;
-			}
+			for(n=0;primes[std::abs((n*n)+(a*n)+b)];++n);
 			if(n>num_primes)
 			{
 				sa=a;
