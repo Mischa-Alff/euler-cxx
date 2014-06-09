@@ -24,8 +24,7 @@ int main()
 	{
 		for(int16_t b=(a>3)?a:3;b<998;b+=2)
 		{
-			if(!primes[b])
-				continue;
+			if(!primes[b]) continue;
 			for(n=0;primes[std::abs((n*n)+(a*n)+b)];++n);
 			if(n>num_primes)
 			{
