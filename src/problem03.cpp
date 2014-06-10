@@ -5,7 +5,7 @@ constexpr uint64_t p = 600851475143;
 
 int main()
 {
-	uint64_t i{sqrt(p)+1};
+	uint64_t i=sqrt(p)+1;
 
 	for(;i>0;i-=2)
 	{

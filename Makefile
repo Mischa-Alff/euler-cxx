@@ -11,4 +11,4 @@ all: $(EXE)
 	$(CXX) $(CXXFLAGS) -o $(patsubst src/%, bin/%, $@) $<
 
 clean:
-	rm $(patsubst src/%, bin/%, $(EXE))
+	rm -r bin
