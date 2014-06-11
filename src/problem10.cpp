@@ -10,10 +10,7 @@ void eratosthenes(int max, std::vector<bool> &val)
 	for(int i{2};i<=n;++i)
 		if(val[i])
 			for(int j=i*i-i;j<val.size();j+=i)
-			{
-				//std::cout<<j<<" is not prime\n";
 				val[j]=false;
-			}
 	val[2]=true;
 }
 
