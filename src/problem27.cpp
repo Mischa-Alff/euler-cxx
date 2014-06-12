@@ -2,17 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
-
-void eratosthenes(int max, std::vector<bool> &val)
-{
-	val.resize(max, true);
-	val[0]=val[1]=false;
-	int n=sqrt(val.size());
-	for(int i{2};i<=n;++i)
-		if(val[i])
-			for(int j=i*i+i;j<val.size();j+=i)
-				val[j]=false;
-}
+#include "primes.hpp"
 
 int main()
 {

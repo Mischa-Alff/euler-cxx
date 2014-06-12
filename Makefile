@@ -1,7 +1,7 @@
 SRC = $(wildcard src/*.cpp)
 EXE = $(patsubst %.cpp,%, $(SRC))
 
-CXXFLAGS=-std=c++11 -O3
+CXXFLAGS=-std=c++11 -O3 -I include
 
 all: $(EXE)
 	@echo $(SRC)
